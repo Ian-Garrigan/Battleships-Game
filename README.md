@@ -31,7 +31,7 @@ A very simple and retro type game in the terminal window. A visual 2D grid and s
 
  -Color coded miss hits in Red for clearer contrast and precision.
 
- #Feature left i would like to implement
+ # Feature left i would like to implement
 
  - The chance for the player to pick the ship size (2, 3 or 4 blocks across)
 
@@ -45,7 +45,7 @@ A very simple and retro type game in the terminal window. A visual 2D grid and s
 
  - A green restart button for navigation and ease of use. 
 
- #Languages used
+ # Languages used
 
  - Python 
 

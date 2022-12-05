@@ -61,3 +61,34 @@ def deploy_battle_area():
         else:
             print("    %d|%s|" % (each_row, "|".join(row)))
         each_row += 1
+
+def ship_dropper():
+    """
+    Dropping the ships onto the grid.
+    """
+    ships_to_drop = 0
+    global FLEET
+    if ZONE <= 3:
+        FLEET = 1
+        while ships_to_drop != FLEET:
+            row_placemarker = randint(1, (ZONE))
+            column_placemarker = randint(1, (ZONE))
+            ship_coordinates = [row_placemarker, column_placemarker]
+            SHIP_LOCATION.append(ship_coordinates)
+            ships_to_drop += 1
+    elif ZONE < 8 and ZONE > 3:
+        FLEET = 3
+        while ships_to_drop != FLEET:
+            row_placemarker = randint(1, (ZONE))
+            column_placemarker = randint(1, (ZONE))
+            ship_coordinates = [row_placemarker, column_placemarker]
+            SHIP_LOCATION.append(ship_coordinates)
+            ships_to_drop += 1
+    else:
+        FLEET = 10
+        while ships_to_drop != FLEET:
+            row_placemarker = randint(1, (ZONE))
+            column_placemarker = randint(1, (ZONE))
+            ship_coordinates = [row_placemarker, column_placemarker]
+            SHIP_LOCATION.append(ship_coordinates)
+            ships_to_drop += 1

@@ -92,3 +92,29 @@ def ship_dropper():
             ship_coordinates = [row_placemarker, column_placemarker]
             SHIP_LOCATION.append(ship_coordinates)
             ships_to_drop += 1
+
+def guesstimate():
+
+    """
+    Taking user input and storing it. Then adjusting the board accordingly.
+    """
+    global SHIPWRECK
+    for attempts in range((ZONE*ZONE) // 2):
+        strikes = int((ZONE*ZONE) // 2)
+        print(" ")
+        print(' Battle outpost: "Ahoy captain,'
+              f'we have {strikes - attempts} strikes left and counting!."')
+        print('  Captain: "Give me an update on the fleet, over."')
+        print(f'Outpost: "{FLEET - SHIPWRECK} remain Captain, over and out"')
+        col_chance = None
+        while True:
+            col_chance = input("Prepare to fire!Enter your LETTER: ")
+            if col_chance.isalpha() and len(col_chance) == 1:
+                col_chance = col_chance.lower()
+                col_chance = ord(col_chance) - 96
+                break
+            else:
+                deploy_battle_area()
+                print(" Pick your letter captain, the grid will guide you.")
+                continue 
+            

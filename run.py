@@ -30,3 +30,14 @@ while True:
     else:
         print("No letters soldier and keep it less than 11!.")
         continue
+
+# Global variables 
+ZONE = BATTLE_AREA
+GRID = []
+SHIP_LOCATION = []
+FLEET = 10
+SHIPWRECK = 0
+
+
+
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

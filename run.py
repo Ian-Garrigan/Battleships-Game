@@ -31,12 +31,6 @@ while True:
         print("No letters soldier and keep it less than 11!.")
         continue
 
-# Global variables
-ZONE = BATTLE_AREA
-GRID = []
-SHIP_LOCATION = []
-FLEET = 10
-SHIPWRECK = 0
 
 def user_battle_size():
     """
@@ -207,3 +201,14 @@ def restart():
         else:
             print("please type either yes or no")
             restart()
+
+
+# Global variables
+ZONE = BATTLE_AREA
+GRID = []
+SHIP_LOCATION = []
+FLEET = 10
+SHIPWRECK = 0
+
+begin_battleships()
+restart()

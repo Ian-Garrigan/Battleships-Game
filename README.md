@@ -1,3 +1,16 @@
+# Battleships
+
+
+
+------------
+Battleships is my first Python terminal game running on Heroku. I studied the classic game endlessly to figure out and target the functions and features neccessary for a simple player vs computer game like this. The ship placements are randomly assigned and a set number of turns are given depending on the board size. 
+
+------------
+
+## Scope 
+
+A very simple and retro type game in the terminal window. A visual 2D grid and story telling to bring it to life. Adding only minimal font colors to make things pop. 
+
 ### Existing Features
  
  - A big welcome message with the game title and short introduction to the typical game mode and a chance to create your own custom board size. 

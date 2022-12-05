@@ -23,7 +23,7 @@ while True:
         if BATTLE_AREA > 1 and BATTLE_AREA <= 10:
             print(" ")
             print("Lets Rock n Roll kid, you know what to do.")
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
             break
         else:
             print(" Please pick a number ranging from 1 to 10")
@@ -129,16 +129,16 @@ def guesstimate():
         picked_col = col_chance
         player_guess = [picked_row, picked_col]
         if player_guess in SHIP_LOCATION:
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
             print("          Boo yaaa! Enemy down, great strike captain.")
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
             GRID[picked_row - 1][picked_col - 1] = "\u001b[32mO\033[0;0m"
             SHIPWRECK += 1
         elif (attempts + 1) - strikes == 0:
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
             print("                   Battleships destroyed, game over.")
             print("   Incoming heli to position, gather the troops Captain!")
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
         elif (picked_row < 1 or picked_row > ZONE) \
                 or (picked_col < 1 or picked_col > ZONE):
             print("-------------------------------------------------------")
@@ -146,28 +146,28 @@ def guesstimate():
             print("              Choose wisely, victory is upon us!")
             print(f"          How about we try striking rows: 1-{ZONE}")
             print(f"          & columns: A-{ALPHABET[ZONE - 1]}")
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
         elif (GRID[picked_row - 1][picked_col - 1]) == "\u001b[31mX\033[0;0m":
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
             print("      Commander...You guessed that one already...")
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
         elif (GRID[picked_row - 1][picked_col - 1]) == "\u001b[32mO\033[0;0m":
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
             print("      Commander...You guessed that one already...")
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
         else:
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
             print(" Try agin, GO captain!")
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
             GRID[picked_row - 1][picked_col - 1] = "\u001b[31mX\033[0;0m"
         if SHIPWRECK == FLEET:
             deploy_battle_area()
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
             print(" hallelujah!")
             print("   Whats that smell Captain? ")
             print(" Thats the smell of victory boy. Now grab me a beer.")
             print(" Tell my wife and kids im coming home.")
-            print("-------------------------------------------------------")
+            print("-----------------------------------------------------")
             break
         deploy_battle_area()
     attempts += 1
@@ -179,7 +179,7 @@ def begin_battleships():
     """
     user_battle_size()
     print("               Fasten Up, its Battleship time!")
-    print("-------------------------------------------------------")
+    print("-----------------------------------------------------")
     print(" ")
     deploy_battle_area()
     ship_dropper()
@@ -197,11 +197,11 @@ def restart():
             exit()
         elif play == "yes":
             # Code brought from stackoverflow
-            print("------------------------------------")
+            print("----------------------------------")
             print("argv was", sys.argv)
             print("sys.executable was", sys.executable)
             print("restart now")
-            print("------------------------------------")
+            print("----------------------------------")
             os.execv(sys.executable, ['python'] + sys.argv)
         else:
             print("please type either yes or no")

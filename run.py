@@ -31,13 +31,33 @@ while True:
         print("No letters soldier and keep it less than 11!.")
         continue
 
-# Global variables 
+# Global variables
 ZONE = BATTLE_AREA
 GRID = []
 SHIP_LOCATION = []
 FLEET = 10
 SHIPWRECK = 0
 
-
+def user_battle_size():
+    """
+    Creating the grid
+    """
+    for user_battle_size.x in range(ZONE):
+        GRID.append(["-"] * ZONE)
+    return ZONE
 
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+def deploy_battle_area():
+    """
+    battle area construction
+    """
+    letters = ALPHABET[0: (ZONE)]
+    print("      %s%s" % (" ", " ".join(letters)))
+    each_row = 1
+    for row in GRID:
+        if each_row <= 9:
+            print("     %d|%s|" % (each_row, "|".join(row)))
+        else:
+            print("    %d|%s|" % (each_row, "|".join(row)))
+        each_row += 1

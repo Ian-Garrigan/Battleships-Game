@@ -116,5 +116,94 @@ def guesstimate():
             else:
                 deploy_battle_area()
                 print(" Pick your letter captain, the grid will guide you.")
-                continue 
-            
+                continue
+        row_chance = None
+        while True:
+            row_chance = input(" Letter confirmed, enter a NUMBER to target: ")
+            if row_chance.isdigit():
+                row_chance = int(row_chance)
+                break
+            else:
+                deploy_battle_area()
+                print("  Keep within the range supplied captain, over.")
+                continue
+        picked_row = row_chance
+        picked_col = col_chance
+        player_guess = [picked_row, picked_col]
+        if player_guess in SHIP_LOCATION:
+            print("-------------------------------------------------------")
+            print("          Boo yaaa! Enemy down, great strike captain.")
+            print("-------------------------------------------------------")
+            GRID[picked_row - 1][picked_col - 1] = "\u001b[32mO\033[0;0m"
+            SHIPWRECK += 1
+        elif (attempts + 1) - strikes == 0:
+            print("-------------------------------------------------------")
+            print("                   Battleships destroyed, game over.")
+            print("   Incoming heli to position, gather the troops Captain!")
+            print("-------------------------------------------------------")
+        elif (picked_row < 1 or picked_row > ZONE) \
+                or (picked_col < 1 or picked_col > ZONE):
+            print("-------------------------------------------------------")
+            print("     We cant hit that target captain out of range!")
+            print("              Choose wisely, victory is upon us!")
+            print(f"          How about we try striking rows: 1-{ZONE}")
+            print(f"          & columns: A-{ALPHABET[ZONE - 1]}")
+            print("-------------------------------------------------------")
+        elif (GRID[picked_row - 1][picked_col - 1]) == "\u001b[31mX\033[0;0m":
+            print("-------------------------------------------------------")
+            print("      Commander...You guessed that one already...")
+            print("-------------------------------------------------------")
+        elif (GRID[picked_row - 1][picked_col - 1]) == "\u001b[32mO\033[0;0m":
+            print("-------------------------------------------------------")
+            print("      Commander...You guessed that one already...")
+            print("-------------------------------------------------------")
+        else:
+            print("-------------------------------------------------------")
+            print(" Try agin, GO captain!")
+            print("-------------------------------------------------------")
+            GRID[picked_row - 1][picked_col - 1] = "\u001b[31mX\033[0;0m"
+        if SHIPWRECK == FLEET:
+            deploy_battle_area()
+            print("-------------------------------------------------------")
+            print(" hallelujah!")
+            print("   Whats that smell Captain? ")
+            print(" Thats the smell of victory boy. Now grab me a beer.")
+            print(" Tell my wife and kids im coming home.")
+            print("-------------------------------------------------------")
+            break
+        deploy_battle_area()
+    attempts += 1
+
+def begin_battleships():
+    """
+    Orderly queue when running the game
+    """
+    user_battle_size()
+    print("               Fasten Up, its Battleship time!")
+    print("-------------------------------------------------------")
+    print(" ")
+    deploy_battle_area()
+    ship_dropper()
+    guesstimate()
+
+
+def restart():
+    """
+    Funct for restarting the game
+    """
+    play = input("Play again? Type: yes \
+        Quit? Type: no ").lower()
+    while True:
+        if play == "no":
+            exit()
+        elif play == "yes":
+            # Code brought from stackoverflow
+            print("------------------------------------")
+            print("argv was", sys.argv)
+            print("sys.executable was", sys.executable)
+            print("restart now")
+            print("------------------------------------")
+            os.execv(sys.executable, ['python'] + sys.argv)
+        else:
+            print("please type either yes or no")
+            restart()

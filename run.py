@@ -1,4 +1,4 @@
-# Import libraries needed
+"""Battleship code here"""
 
 from random import randint
 import os
@@ -40,7 +40,9 @@ def user_battle_size():
         GRID.append(["-"] * ZONE)
     return ZONE
 
+
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 
 def deploy_battle_area():
     """
@@ -55,6 +57,7 @@ def deploy_battle_area():
         else:
             print("    %d|%s|" % (each_row, "|".join(row)))
         each_row += 1
+
 
 def ship_dropper():
     """
@@ -86,6 +89,7 @@ def ship_dropper():
             ship_coordinates = [row_placemarker, column_placemarker]
             SHIP_LOCATION.append(ship_coordinates)
             ships_to_drop += 1
+
 
 def guesstimate():
 
@@ -167,6 +171,7 @@ def guesstimate():
             break
         deploy_battle_area()
     attempts += 1
+
 
 def begin_battleships():
     """
